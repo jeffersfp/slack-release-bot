@@ -3,14 +3,20 @@ name: Slackbot on release
 on:
   release:
     types:
-      - created
+      - published
 
 jobs:
-  notify_slack:
+  release:
+    permissions:
+      contents: read
+      pull-requests: write
+
     runs-on: ubuntu-latest
-    name: Notify Slack on Release
+
     steps:
-      - name: Notify Slack on Releases
-        uses: amendx/slackbot-release@1.0.1
+
+      - name: Release Notification
+        uses: thedaviddias/publish-release-info-action@vX.X.X
         with:
-          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          slack_webhook_urls: ${{ secrets.SLACK_WEBHOOK_URL }}
