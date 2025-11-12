@@ -10,6 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Send Slack Notification
-        uses: your-org/slack-release-notifications@v1.0.1
+        uses: udhaykumarbala/slack-release-notifications@v1.0.1
         with:
           slack-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
