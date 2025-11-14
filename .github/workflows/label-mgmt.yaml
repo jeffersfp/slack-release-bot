@@ -1,10 +1,10 @@
 name: Label Management
 
 on:
-  label:
+  pull_request:
     types:
-      - created
-      - deleted
+      - labeled
+      - unlabeled
 
 jobs:
   debug_labels:
