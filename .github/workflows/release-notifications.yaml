@@ -3,7 +3,6 @@ name: Slackbot on release
 on:
   release:
     types:
-      - created
       - published
 
 jobs:
@@ -15,4 +14,4 @@ jobs:
         uses: jeffersfp/github-release-slack-notification@v0.0.1
         with:
           slack-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
-          notify-on-drafts: 'true'          
+          mentions: 'U099H2ECZHV'  
