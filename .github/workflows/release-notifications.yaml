@@ -13,6 +13,7 @@ jobs:
         uses: udhaykumarbala/slack-release-notifier@v1.0.1
         with:
           slack-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          action-items: ''
 
 # jobs:
 #   notify_slack:
