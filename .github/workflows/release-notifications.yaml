@@ -6,12 +6,25 @@ on:
       - published
 
 jobs:
-  notify_slack:
+  release:
+    permissions:
+      contents: read
+      pull-requests: write
     runs-on: ubuntu-latest
-    name: Notify Slack on Release
     steps:
-      - name: Notify Slack on Releases
-        uses: jeffersfp/github-release-slack-notification@v0.0.1
+      - name: Release Notification
+        uses: thedaviddias/publish-release-info-action@v3.3.0
         with:
-          slack-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
-          mentions: 'U099H2ECZHV'  
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          slack_webhook_urls: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+# jobs:
+#   notify_slack:
+#     runs-on: ubuntu-latest
+#     name: Notify Slack on Release
+#     steps:
+#       - name: Notify Slack on Releases
+#         uses: jeffersfp/github-release-slack-notification@v0.0.1
+#         with:
+#           slack-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
+#           mentions: 'U099H2ECZHV'  
